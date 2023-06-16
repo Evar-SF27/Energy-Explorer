@@ -1,4 +1,4 @@
 var config = { 
     width: 1200, 
-    numColumns: 10
+    numColumns: 13
 }

@@ -24,7 +24,6 @@ function layout(data) {
         item.nuclearRadius = radiusScale(d.nuclear)
         item.renewableRadius = radiusScale(d.renewable)
 
-        console.log(item)
         return item
     })
         return layoutData

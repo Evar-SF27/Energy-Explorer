@@ -33,7 +33,6 @@ function updateGroup(d, i) {
 
 function update() {
     let layoutData = layout(data)
-    console.log("update")
     d3.select('#chart')
       .selectAll('g')
       .data(layoutData)
