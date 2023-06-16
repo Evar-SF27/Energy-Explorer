@@ -24,6 +24,15 @@ function layout(data) {
         item.nuclearRadius = radiusScale(d.nuclear)
         item.renewableRadius = radiusScale(d.renewable)
 
+        item.popupOffset = -0.8 * maxRadius
+        item.popupData = {
+            name: d.name,
+            renewable: d.renewable,
+            oilgascoal: d.oilgascoal,
+            hydroelectric: d.hydroelectric,
+            nuclear: d.nuclear
+        }
+
         return item
     })
         return layoutData

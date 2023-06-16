@@ -1,13 +1,23 @@
 function initialiseGroup(g) {
   g.classed('country', true)
+    .on('mouseover', handleMouseover)
+    .on('mouseout', handleMouseout)
+
+  g.append('circle')
+    .classed('popup-center', true)
+    
   g.append('circle')
     .classed('renewable', true)
+
   g.append('circle')
     .classed('oilgascoal', true)
+
   g.append('circle')
     .classed('hydroelectric', true)
+
   g.append('circle')
     .classed('nuclear', true)
+
   g.append('text')
     .classed('label', true)
  }
@@ -18,6 +28,8 @@ function updateGroup(d, i) {
     g.selectAll('*').empty() && initialiseGroup(g)
     g.classed('country', true)
       .attr('transform', 'translate(' + d.x + ',' + d.y + ')')
+    g.select('.popup-center')
+      .attr('cy', d.popupOffset)
     g.select('.renewable')
       .attr('r', d.renewableRadius)
     g.select('.oilgascoal')

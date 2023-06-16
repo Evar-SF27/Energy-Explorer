@@ -2,6 +2,10 @@ body {
     background-color: #fffff7;
 }
 
+.country {
+    pointer-events: all;
+}
+
 .country .label { 
     text-anchor: middle;
 }
@@ -28,4 +32,18 @@ circle.nuclear {
     fill: none;
     stroke: #c72df6;
     stroke-dasharray: 4,2; 
+}
+
+.flourish-popup { 
+    pointer-events: none;
+}
+
+.popup-center {
+    opacity: 0;
+}
+
+.flourish-popup-content { 
+    font-family: sans-serif; 
+    font-size: 14px;
+    color: #555;
 }
