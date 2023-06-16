@@ -1,5 +1,4 @@
 let data
-
 function dataIsReady(csv) { 
     data = csv
     update()
@@ -8,7 +7,7 @@ function dataIsReady(csv) {
 function transformRow(data) {
     return {
         id: data.id,
-        country_name: data.name,
+        name: data.name,
         oilgascoal: parseFloat(data.oilgascoal),
         nuclear: parseFloat(data.nuclear),
         hydroelectric: parseFloat(data.hydroelectric),
