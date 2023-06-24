@@ -1,4 +1,6 @@
 var config = { 
-    width: 1200, 
-    numColumns: 13
+    width: 1300, 
+    numColumns: 13,
+    transitionDuration: 700,
+    transitionDelay: 10
 }

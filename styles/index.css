@@ -1,5 +1,29 @@
 body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     background-color: #fffff7;
+    cursor: default;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    background-color: #24a335;
+    height: 85px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin: auto;
+    padding-top: 20px;
+    padding-left: 10px;
+    justify-content: center;
+    font-size: 36px;
+    color: rgb(255, 170, 0);
+}
+
+h1 span {
+    color: white;
 }
 
 .country {
@@ -13,6 +37,54 @@ body {
 #wrapper {
     width: 1200px;
     margin: 0 auto;
+}
+
+#controls {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+    align-items: center;
+}
+
+.menu {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center
+}
+
+.menu .items {
+    display: flex;
+}
+
+.menu .item {
+    padding: 0 1rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.menu .item .label {
+    font-size: 1.2rem;
+    padding-left: 0.2rem;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.menu .item.selected .label, .menu .item:hover .label {
+    opacity: 1;
+}
+
+.legend circle {
+    stroke: #aaa;
+    
+    fill: none;
+}
+
+.legend text {
+    fill: #777;
+    text-anchor: middle;
+    text-align: justify;
+    dominant-baseline: middle;
 }
 
 circle.renewable {
@@ -47,3 +119,4 @@ circle.nuclear {
     font-size: 14px;
     color: #555;
 }
+

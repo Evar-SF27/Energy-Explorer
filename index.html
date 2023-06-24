@@ -8,17 +8,47 @@
     <title>Energy Explorer</title>
 </head>
 <body>
+    <header>
+        <h1>D3 Energy<span> Explorer</span></h1>
+    </header>
     <div id="wrapper">
-        <svg width="1200" height="1200">
-            <g id="chart"></g>
-        </svg>
+        <div id="controls">
+            <div class="menu">
+                <div>Sort by:</div>
+                <div class="items">
+                    <div class="item">Country</div>
+                    <div class="item">Renewable</div>
+                    <div class="item">Oil, Gas & Coal</div>
+                    <div class="item">Hydroelectric</div>
+                    <div class="item">Nuclear</div>
+                </div>
+            </div>
+            <div class="legend">
+                <svg width="70" height="70">
+                    <g transform="translate(35, 35)">
+                        <circle />
+                        <text>100%</text>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div id="chart-wrapper">
+            <svg width="1200" height="1200">
+                <g id="chart"></g>
+            </svg>
+        </div>
     </div>
+    <!-- External Libraries -->
     <script src="lib/d3.min.js"></script>
     <script src="lib/popup-v1.1.1.min.js"></script>
+    <script src="lib/lodash.min.js"></script>
+    <!-- Local JS Files -->
     <script src="js/config.js"></script>
+    <script src="js/store.js"></script>
     <script src="js/layout.js"></script>
     <script src="js/update.js"></script>
     <script src="js/popup.js"></script>
+    <script src="js/menu.js"></script>
     <script src="index.js"></script>
 </body>
 </html>

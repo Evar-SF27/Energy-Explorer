@@ -1,5 +1,7 @@
-function initialiseGroup(g) {
+function initialiseGroup(g, d) {
   g.classed('country', true)
+    .style('opacity', true)
+    .attr('transform', 'translate(' + d.x + ',' + d.y + ')')
     .on('mouseover', handleMouseover)
     .on('mouseout', handleMouseout)
 
@@ -25,29 +27,67 @@ function initialiseGroup(g) {
 function updateGroup(d, i) {
     let g = d3.select(this)
   
-    g.selectAll('*').empty() && initialiseGroup(g)
+    g.selectAll('*').empty() && initialiseGroup(g, d)
+
+    g.transition()
+      .duration(config.transitionDuration)
+      .delay(i * config.transitionDelay)
+      .attr('transform', 'translate(' + d.x + ',' + d.y + ')')
+      .style('opacity', d.visible ? 1 : 0)
+      .style('pointer-events', d.visible ? 'all' : 'none')
+
     g.classed('country', true)
       .attr('transform', 'translate(' + d.x + ',' + d.y + ')')
+
     g.select('.popup-center')
       .attr('cy', d.popupOffset)
+
     g.select('.renewable')
+      .transition()
+      .duration(config.transitionDuration)
+      .delay(i * config.transitionDelay)
       .attr('r', d.renewableRadius)
+
     g.select('.oilgascoal')
+      .transition()
+      .duration(config.transitionDuration)
+      .delay(i * config.transitionDelay)
       .attr('r', d.oilGasCoalRadius)
+
     g.select('.hydroelectric')
+      .transition()
+      .duration(config.transitionDuration)
+      .delay(i * config.transitionDelay)
       .attr('r', d.hydroelectricRadius)
+
     g.select('.nuclear')
+      .transition()
+      .duration(config.transitionDuration)
+      .delay(i * config.transitionDelay)
       .attr('r', d.nuclearRadius)
+
     g.select('.label')
       .attr('y', d.labelOffset)
       .text(d.labelText)
 }
 
+function updateChart() {
+  let layoutData = layout(data)
+
+  d3.select('#chart')
+    .selectAll('g')
+    .data(layoutData, (d) => d.id)
+    .join('g')
+    .each(updateGroup)
+}
+
+function updateLegend() {
+  d3.select('.legend circle')
+    .attr('r', getMaxRadius())
+}
+
 function update() {
-    let layoutData = layout(data)
-    d3.select('#chart')
-      .selectAll('g')
-      .data(layoutData)
-      .join('g')
-      .each(updateGroup)
+    updateChart()
+    updateMenu()
+    updateLegend()
 }
